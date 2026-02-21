@@ -214,22 +214,20 @@ export function GenerationWorkspace() {
 
     const handleDownloadImage = async (imageUrl: string, index: number) => {
         try {
-            const response = await fetch(imageUrl);
-            const blob = await response.blob();
-            const blobUrl = window.URL.createObjectURL(blob);
+            // Bypass CORS by using our own API route as a proxy
+            const proxyUrl = `/api/download?url=${encodeURIComponent(imageUrl)}`;
 
             const link = document.createElement('a');
-            link.href = blobUrl;
+            link.href = proxyUrl;
             link.download = `visionprompt-generation-${Date.now()}-${index + 1}.png`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            window.URL.revokeObjectURL(blobUrl);
 
-            toast.success("Image downloaded successfully!");
+            toast.success("Image downloading...");
         } catch (error) {
             console.error("Download error:", error);
-            toast.error("Failed to download image");
+            toast.error("Failed to start download");
         }
     };
 
