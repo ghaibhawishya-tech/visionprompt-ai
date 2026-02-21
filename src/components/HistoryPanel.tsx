@@ -59,7 +59,28 @@ export function HistoryPanel() {
         return () => unsubscribe();
     }, [user]);
 
+    const handleDownloadImage = async (imageUrl: string, index: number, e: React.MouseEvent) => {
+        e.stopPropagation(); // prevent opening the history item
+        try {
+            const response = await fetch(imageUrl);
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = `visionprompt-history-${Date.now()}-${index + 1}.png`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl);
+        } catch (error) {
+            console.error("Download error:", error);
+        }
+    };
+
     if (history.length === 0) {
+
+
         return (
             <div className="flex flex-col items-center justify-center p-8 text-center border border-white/5 bg-white/5 rounded-2xl h-48">
                 <Sparkles className="w-8 h-8 text-white/20 mb-3" />
@@ -103,7 +124,17 @@ export function HistoryPanel() {
                             </div>
                         )}
                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <Button size="icon" variant="secondary" className="rounded-full w-8 h-8">
+                            <Button
+                                size="icon"
+                                variant="secondary"
+                                className="rounded-full w-8 h-8"
+                                onClick={(e) => {
+                                    if (item.images.length > 0) {
+                                        const url = typeof item.images[0] === 'string' ? item.images[0] : item.images[0].url;
+                                        handleDownloadImage(url, 0, e);
+                                    }
+                                }}
+                            >
                                 <Download className="w-4 h-4" />
                             </Button>
                         </div>

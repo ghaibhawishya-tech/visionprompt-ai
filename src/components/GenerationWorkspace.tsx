@@ -212,6 +212,27 @@ export function GenerationWorkspace() {
         }
     };
 
+    const handleDownloadImage = async (imageUrl: string, index: number) => {
+        try {
+            const response = await fetch(imageUrl);
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = `visionprompt-generation-${Date.now()}-${index + 1}.png`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl);
+
+            toast.success("Image downloaded successfully!");
+        } catch (error) {
+            console.error("Download error:", error);
+            toast.error("Failed to download image");
+        }
+    };
+
     return (
         <div className="flex-1 flex flex-col gap-6">
             {/* Input Area */}
@@ -463,10 +484,7 @@ export function GenerationWorkspace() {
                         <div className="absolute bottom-6 right-6">
                             <Button
                                 className="rounded-full bg-white text-black hover:bg-white/90 shadow-2xl"
-                                onClick={() => {
-                                    /* Handle real download here */
-                                    toast.success("Image downloaded!");
-                                }}
+                                onClick={() => handleDownloadImage(generatedImages[viewingImageIndex].url, viewingImageIndex)}
                             >
                                 <Download className="w-4 h-4 mr-2" /> Download
                             </Button>
