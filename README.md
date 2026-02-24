@@ -1,53 +1,33 @@
 # VisionPrompt AI
 
-> AI-powered visual prompt generation tool — live at [visionprompt-ai-sandy.vercel.app](https://visionprompt-ai-sandy.vercel.app)
+**Try it live:** [visionprompt-ai-sandy.vercel.app](https://visionprompt-ai-sandy.vercel.app)
 
 ---
 
-## What It Does
+## The Problem
 
-VisionPrompt AI helps users generate high-quality, structured prompts for AI image generation tools (like Midjourney, DALL-E, Stable Diffusion). Built with a clean interface and Firebase authentication so users can save and revisit their prompts.
+When you want to generate an image using AI tools like Midjourney or DALL-E, the quality of what you get back depends almost entirely on how well you describe it. Most people don't know how to write a good prompt — they type something vague and get something generic.
 
----
+## What This Does
 
-## Features
+VisionPrompt AI takes a simple description from you and turns it into a detailed, structured prompt that actually works well with AI image generators. Think of it as a translator between "what you have in your head" and "what the AI needs to hear."
 
-- Generate detailed visual prompts from simple text input
-- Google Authentication via Firebase
-- Clean, responsive UI built with Next.js
-- Deployed live on Vercel
+You log in, type what you're imagining, and get back a ready-to-use prompt you can paste directly into Midjourney, DALL-E, or Stable Diffusion.
 
 ---
 
-## Tech Stack
+## How to Use It
 
-| Layer | Technology |
-|---|---|
-| Frontend | Next.js, TypeScript |
-| Auth | Firebase Authentication (Google) |
-| Deployment | Vercel |
-| Styling | Tailwind CSS |
+1. Go to [visionprompt-ai-sandy.vercel.app](https://visionprompt-ai-sandy.vercel.app)
+2. Sign in with your Google account
+3. Describe what you want to generate in plain language
+4. Copy the generated prompt and paste it into your AI image tool
 
 ---
 
-## Getting Started
+## Status
 
-```bash
-git clone https://github.com/ghaibhawishya-tech/visionprompt-ai
-cd visionprompt-ai
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-> Note: Add your own Firebase config in a `.env.local` file.
-
----
-
-## Live Demo
-
-[visionprompt-ai-sandy.vercel.app](https://visionprompt-ai-sandy.vercel.app)
+This is an early-stage project built to explore the idea. It works, but there's a lot more I want to add — prompt history, style presets, side-by-side image previews.
 
 ---
 
