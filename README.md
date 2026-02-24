@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VisionPrompt AI
+
+> AI-powered visual prompt generation tool — live at [visionprompt-ai-sandy.vercel.app](https://visionprompt-ai-sandy.vercel.app)
+
+---
+
+## What It Does
+
+VisionPrompt AI helps users generate high-quality, structured prompts for AI image generation tools (like Midjourney, DALL-E, Stable Diffusion). Built with a clean interface and Firebase authentication so users can save and revisit their prompts.
+
+---
+
+## Features
+
+- Generate detailed visual prompts from simple text input
+- Google Authentication via Firebase
+- Clean, responsive UI built with Next.js
+- Deployed live on Vercel
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js, TypeScript |
+| Auth | Firebase Authentication (Google) |
+| Deployment | Vercel |
+| Styling | Tailwind CSS |
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/ghaibhawishya-tech/visionprompt-ai
+cd visionprompt-ai
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> Note: Add your own Firebase config in a `.env.local` file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+[visionprompt-ai-sandy.vercel.app](https://visionprompt-ai-sandy.vercel.app)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [Bhawishya Ghai](https://github.com/ghaibhawishya-tech)
